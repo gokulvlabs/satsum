@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "47b80ca2-e078-4e0d-ab17-cee00f67bb52",
+		"name": "SatSum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "542272"
+	},
+	"item": [
+		{
+			"name": "1. An API to add a new record to the dataset.",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "jwt:eyJhbGciOiJIUzI1NiJ9..PlagQ12tzQcpcOVVTFgIkLPQEVTFb9lgGH3_O0iMe68",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"name\": \"Abhishek\",\n        \"salary\": \"145000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API to add batch of employees",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "jwt:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY2NTg1NjczMSwiaWF0IjoxNjY1ODIwNzMxfQ.pw4VOv0wrf6hRBk9LNPM3po62eaB2CeCr3n34DoCJkI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"Abhishek\",\n        \"salary\": \"145000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Anurag\",\n        \"salary\": \"90000\",\n        \"currency\": \"USD\",\n        \"department\": \"Banking\",\n        \"on_contract\": \"true\",\n        \"sub_department\": \"Loan\"\n    },\n    {\n        \"name\": \"Himani\",\n        \"salary\": \"240000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Yatendra\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Operations\",\n        \"sub_department\": \"CustomerOnboarding\"\n    },\n    {\n        \"name\": \"Ragini\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Nikhil\",\n        \"salary\": \"110000\",\n        \"currency\": \"USD\",\n        \"on_contract\": \"true\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Guljit\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Administration\",\n        \"sub_department\": \"Agriculture\"\n    },\n    {\n        \"name\": \"Himanshu\",\n        \"salary\": \"70000\",\n        \"currency\": \"EUR\",\n        \"department\": \"Operations\",\n        \"sub_department\": \"CustomerOnboarding\"\n    },\n    {\n        \"name\": \"Anupam\",\n        \"salary\": \"200000000\",\n        \"currency\": \"INR\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employeesBatch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employeesBatch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate API",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTY2NTg1MjM0MywiaWF0IjoxNjY1ODE2MzQzfQ.-CrBChBj3C0N613jPaifykLwZ9E7-SAJT2U_GhJTSRg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\":\"admin\",\n    \"password\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. An API to fetch SS for salary for each department",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "jwt:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY2NTg4Mzg5MCwiaWF0IjoxNjY1ODQ3ODkwfQ.LUrj1hKiMddRhb1DPirfyCpLojRzxkf8L3oZ4-I4wUw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"Abhishek\",\n        \"salary\": \"145000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Anurag\",\n        \"salary\": \"90000\",\n        \"currency\": \"USD\",\n        \"department\": \"Banking\",\n        \"on_contract\": \"true\",\n        \"sub_department\": \"Loan\"\n    },\n    {\n        \"name\": \"Himani\",\n        \"salary\": \"240000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Yatendra\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Operations\",\n        \"sub_department\": \"CustomerOnboarding\"\n    },\n    {\n        \"name\": \"Ragini\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Nikhil\",\n        \"salary\": \"110000\",\n        \"currency\": \"USD\",\n        \"on_contract\": \"true\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Guljit\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Administration\",\n        \"sub_department\": \"Agriculture\"\n    },\n    {\n        \"name\": \"Himanshu\",\n        \"salary\": \"70000\",\n        \"currency\": \"EUR\",\n        \"department\": \"Operations\",\n        \"sub_department\": \"CustomerOnboarding\"\n    },\n    {\n        \"name\": \"Anupam\",\n        \"salary\": \"200000000\",\n        \"currency\": \"INR\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/statisticalSummaryDept",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"statisticalSummaryDept"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. An API to fetch SS for salary for records which satisfy \"on_contract\": \"true\".",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "jwt:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY2NTg4Mzg5MCwiaWF0IjoxNjY1ODQ3ODkwfQ.LUrj1hKiMddRhb1DPirfyCpLojRzxkf8L3oZ4-I4wUw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"Abhishek\",\n        \"salary\": \"145000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Anurag\",\n        \"salary\": \"90000\",\n        \"currency\": \"USD\",\n        \"department\": \"Banking\",\n        \"on_contract\": \"true\",\n        \"sub_department\": \"Loan\"\n    },\n    {\n        \"name\": \"Himani\",\n        \"salary\": \"240000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Yatendra\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Operations\",\n        \"sub_department\": \"CustomerOnboarding\"\n    },\n    {\n        \"name\": \"Ragini\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Nikhil\",\n        \"salary\": \"110000\",\n        \"currency\": \"USD\",\n        \"on_contract\": \"true\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Guljit\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Administration\",\n        \"sub_department\": \"Agriculture\"\n    },\n    {\n        \"name\": \"Himanshu\",\n        \"salary\": \"70000\",\n        \"currency\": \"EUR\",\n        \"department\": \"Operations\",\n        \"sub_department\": \"CustomerOnboarding\"\n    },\n    {\n        \"name\": \"Anupam\",\n        \"salary\": \"200000000\",\n        \"currency\": \"INR\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/statisticalSummaryOnContract",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"statisticalSummaryOnContract"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. An API to delete a new record to the dataset.",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "jwt:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY2NTg4Mzg5MCwiaWF0IjoxNjY1ODQ3ODkwfQ.LUrj1hKiMddRhb1DPirfyCpLojRzxkf8L3oZ4-I4wUw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"Abhishek\",\n        \"salary\": \"145000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Anurag\",\n        \"salary\": \"90000\",\n        \"currency\": \"USD\",\n        \"department\": \"Banking\",\n        \"on_contract\": \"true\",\n        \"sub_department\": \"Loan\"\n    },\n    {\n        \"name\": \"Himani\",\n        \"salary\": \"240000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Yatendra\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Operations\",\n        \"sub_department\": \"CustomerOnboarding\"\n    },\n    {\n        \"name\": \"Ragini\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Nikhil\",\n        \"salary\": \"110000\",\n        \"currency\": \"USD\",\n        \"on_contract\": \"true\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Guljit\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Administration\",\n        \"sub_department\": \"Agriculture\"\n    },\n    {\n        \"name\": \"Himanshu\",\n        \"salary\": \"70000\",\n        \"currency\": \"EUR\",\n        \"department\": \"Operations\",\n        \"sub_department\": \"CustomerOnboarding\"\n    },\n    {\n        \"name\": \"Anupam\",\n        \"salary\": \"200000000\",\n        \"currency\": \"INR\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employees/Abhishek",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"Abhishek"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. An API to fetch SS for salary over the entire dataset.",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"Abhishek\",\n        \"salary\": \"145000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Anurag\",\n        \"salary\": \"90000\",\n        \"currency\": \"USD\",\n        \"department\": \"Banking\",\n        \"on_contract\": \"true\",\n        \"sub_department\": \"Loan\"\n    },\n    {\n        \"name\": \"Himani\",\n        \"salary\": \"240000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Yatendra\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Operations\",\n        \"sub_department\": \"CustomerOnboarding\"\n    },\n    {\n        \"name\": \"Ragini\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Nikhil\",\n        \"salary\": \"110000\",\n        \"currency\": \"USD\",\n        \"on_contract\": \"true\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Guljit\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Administration\",\n        \"sub_department\": \"Agriculture\"\n    },\n    {\n        \"name\": \"Himanshu\",\n        \"salary\": \"70000\",\n        \"currency\": \"EUR\",\n        \"department\": \"Operations\",\n        \"sub_department\": \"CustomerOnboarding\"\n    },\n    {\n        \"name\": \"Anupam\",\n        \"salary\": \"200000000\",\n        \"currency\": \"INR\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/statisticalSummary",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"statisticalSummary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. An API to fetch SS for salary for each department and sub-department combination",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"Abhishek\",\n        \"salary\": \"145000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Anurag\",\n        \"salary\": \"90000\",\n        \"currency\": \"USD\",\n        \"department\": \"Banking\",\n        \"on_contract\": \"true\",\n        \"sub_department\": \"Loan\"\n    },\n    {\n        \"name\": \"Himani\",\n        \"salary\": \"240000\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Yatendra\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Operations\",\n        \"sub_department\": \"CustomerOnboarding\"\n    },\n    {\n        \"name\": \"Ragini\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Nikhil\",\n        \"salary\": \"110000\",\n        \"currency\": \"USD\",\n        \"on_contract\": \"true\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    },\n    {\n        \"name\": \"Guljit\",\n        \"salary\": \"30\",\n        \"currency\": \"USD\",\n        \"department\": \"Administration\",\n        \"sub_department\": \"Agriculture\"\n    },\n    {\n        \"name\": \"Himanshu\",\n        \"salary\": \"70000\",\n        \"currency\": \"EUR\",\n        \"department\": \"Operations\",\n        \"sub_department\": \"CustomerOnboarding\"\n    },\n    {\n        \"name\": \"Anupam\",\n        \"salary\": \"200000000\",\n        \"currency\": \"INR\",\n        \"department\": \"Engineering\",\n        \"sub_department\": \"Platform\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/statisticalSummarySubDept",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"statisticalSummarySubDept"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
