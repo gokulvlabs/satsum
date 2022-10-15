@@ -1,7 +1,7 @@
 # Springboot-JWT-docker
  statistical summary
 
-Add postman collection for testing API.
+Added postman collection for testing API.
 
 Docker command
 =============
