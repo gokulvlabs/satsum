@@ -1,0 +1,7 @@
+version: "3"
+services:
+  springboot-mongodb:
+    image: springboot-satsum:1.1
+    container_name: springboot-satsum
+    ports:
+      - 8080:8080
