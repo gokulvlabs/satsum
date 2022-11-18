@@ -1,7 +1,7 @@
 package com.satsum.util;
 
 import java.util.HashMap;
-
+//test
 public class Solution {
 
     public int solution(String[] A) {
